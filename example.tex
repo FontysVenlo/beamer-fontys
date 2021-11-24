@@ -1,14 +1,23 @@
 \documentclass[aspectratio=169]{beamer}
 
+% Needed packages
+\usepackage{hyperref}
+
+% Use the Fontys theme
 \usetheme{Fontys}
+
+% Title page settings
 \title{Example presentation}
 \institute[FHTenL]{}
 \author{M. Bonajo}
 
+% Start the document
 \begin{document}
 
+% Create title page
 \frame{\titlepage}
 
+% Example frame for itemize
 \begin{frame}
     \frametitle{Itemize frame}
 
@@ -17,6 +26,13 @@
         \item Option two
         \item Option three
     \end{itemize}
+
+\end{frame}
+
+% Example frame for URL
+\begin{frame}
+    \frametitle{URL}
+    \href{http://www.example.com}{Example link}
 
 \end{frame}
 
