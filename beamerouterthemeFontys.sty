@@ -1,0 +1,115 @@
+% Required packages
+\RequirePackage{calc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{ifthen}
+% Set mode to presentation
+\mode<presentation>
+
+\def\tstdrawtitlebackground{\@ifnextchar[\@tstdrawtitlebackground{\@tstdrawtitlebackground[]}}
+\def\@tstdrawtitlebackground[#1]{%
+  \drawtitlebackground%
+}
+
+% TAKEN FROM TU/e TEMPLATE
+% it is convenient to define a unit \cm
+% that corresponds to 1cm, because this makes it very easy to do rescaling
+% if desired. For example, it makes it easy to reuse this code in other
+% presentation templates (like pdfscreen) where the screen/paper sizes are
+% completely different.
+%
+%  4:3 = 12.8cm x 9.6cm
+% 16:9 = 16.0cm x 9.0cm
+% 16:10= 16.0cm x 10.0cm
+\newlength{\cm}
+\setlength{\cm}{\paperwidth/16}
+\newlength{\slidelogoy}
+\newlength{\logoheight}
+\newlength{\bgimageheight}
+\newlength{\topbarheight}
+\newlength{\lefttitlemargin}
+\newlength{\bottombar}
+
+\setlength{\topbarheight}{2\cm}%
+\setlength{\logoheight}{1.14\cm}%
+\setlength{\lefttitlemargin}{0.85\cm}%
+\setlength{\slidelogoy}{0.1\cm}%
+\setlength{\bottombar}{0.5\cm}%
+
+\newcommand{\drawtitlebackground}{%
+    \begin{pgfpicture}{0cm}{0cm}{\the\paperwidth}{\the\paperheight}%
+        \fontsize{12}{12}\selectfont%
+        \pgfsetfillopacity{1.0}%
+        \pgfsetcolor{fontys}%
+        \pgfpathmoveto{\pgfpoint{0\cm}{\paperheight}}%
+        \pgfpathlineto{\pgfpoint{\paperwidth}{\paperheight}}%
+        \pgfpathlineto{\pgfpoint{\paperwidth}{\paperheight-\topbarheight}}%
+        \pgfpathlineto{\pgfpoint{0\cm}{\paperheight-\topbarheight}}%
+        \pgfusepath{fill}%
+    \end{pgfpicture}%
+}%
+
+\newcommand{\pageinfo}{
+    % Set page number and slide title
+    \pgfsetcolor{fontys}
+    \normalfont\fontsize{6}{6}\selectfont
+    \pgftext[at=\pgfpoint{\paperwidth-\lefttitlemargin}{\bottombar},left,center]{\insertframenumber/\inserttotalframenumber \phantom{Xg}}%
+    \pgftext[at=\pgfpoint{\paperwidth/2}{\bottombar},center,center]{\inserttitle \phantom{Xg}}%
+}
+
+\newcommand{\drawlogo}{    
+    \pgftext[at=\pgfpoint{0.5\lefttitlemargin}{\bottombar/2 + \logoheight/2},left,center]{%
+        \includegraphics[height=\logoheight]{logo_purple.jpg}
+    }%    
+}
+
+% Default background template
+\newcommand{\drawbackground}{
+    % Cover entire page
+    \begin{pgfpicture}{0cm}{0cm}{\the\paperwidth}{\the\paperheight}%
+        % Check if we are not at the title page
+        \ifnum\thepage>1\relax%
+            % Draw Fontys logo at bottom left
+            \drawlogo
+            % Draw slide title and page numbers
+            \pageinfo
+        \else
+            %\drawtitlebackground
+        \fi
+    \end{pgfpicture}%
+}
+
+% Title page
+\defbeamertemplate*{title page}{Fontys}[1][]
+{%
+    \begin{minipage}[t][2.5cm][t]{10cm}%
+        \begin{beamercolorbox}{title}%
+            \usebeamerfont{title}{\Huge\inserttitle\par}%
+            \vspace{0.25cm}%
+            \usebeamerfont{subtitle}\insertsubtitle\par%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}{institute}%
+            \usebeamerfont{institute}{\insertinstitute\par}%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}{date}%
+            \usebeamerfont{date}{\insertdate\par}%
+        \end{beamercolorbox}%
+    \end{minipage}%
+
+}%
+
+% Set default background template
+\setbeamertemplate{background}{\drawbackground}
+
+% Set the frame title properties
+\setbeamertemplate{frametitle}
+{
+    \vspace*{1.5em}%
+    \begin{minipage}[t][.5cm][t]{10cm}%
+        \begin{beamercolorbox}{frametitle}%
+            \raggedright\insertframetitle\par%
+        \end{beamercolorbox}%
+    \end{minipage}
+}
+
+% Set mode back to all
+\mode<all>

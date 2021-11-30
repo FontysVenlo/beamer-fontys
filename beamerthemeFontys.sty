@@ -5,11 +5,16 @@
 % Set the presentation mode
 \mode<presentation>
 
+% Add new frame types
+\newenvironment{titleframe}[1][]{\usebackgroundtemplate{\tstdrawtitlebackground[#1]}\begin{frame}[fragile,environment=titleframe]}{\end{frame}\usebackgroundtemplate{\drawbackground}}
+
 % Specify which themes to use
 \useinnertheme{default}
 \useoutertheme{Fontys}
 \usecolortheme{Fontys}
 \usefonttheme{Fontys}
+
+\setbeamersize{text margin left=\lefttitlemargin,text margin right=\lefttitlemargin}
 
 % Change the hypersetup
 \hypersetup{
@@ -18,6 +23,6 @@
     filecolor=fontys,      
     urlcolor=fontys
 }
-
+\beamertemplatenavigationsymbolsempty
 % Switch back to all mode
 \mode<all>
