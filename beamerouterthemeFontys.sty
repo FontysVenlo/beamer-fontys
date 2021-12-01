@@ -28,12 +28,14 @@
 \newlength{\topbarheight}
 \newlength{\lefttitlemargin}
 \newlength{\bottombar}
+\newlength{\logomargin}
 
-\setlength{\topbarheight}{2\cm}%
-\setlength{\logoheight}{1.14\cm}%
-\setlength{\lefttitlemargin}{0.85\cm}%
+\setlength{\topbarheight}{1.84\cm}%
+\setlength{\logoheight}{1.2\cm}%
+\setlength{\lefttitlemargin}{1.5\cm}%
 \setlength{\slidelogoy}{0.1\cm}%
 \setlength{\bottombar}{0.5\cm}%
+\setlength{\logomargin}{0.3\cm}
 
 % Define new commands
 
@@ -49,6 +51,10 @@
         \pgfpathlineto{\pgfpoint{\paperwidth}{\paperheight-\topbarheight}}%
         \pgfpathlineto{\pgfpoint{0\cm}{\paperheight-\topbarheight}}%
         \pgfusepath{fill}%
+
+        \pgftext[at=\pgfpoint{\logomargin}{\paperheight - \topbarheight/2},left,center]{%
+        \includegraphics[height=\logoheight]{logo_purple_society_en.png}
+    }%    
     \end{pgfpicture}%
 }%
 
@@ -62,8 +68,8 @@
 
 % Draw the Fontys logo at the bottom left
 \newcommand{\drawlogo}{    
-    \pgftext[at=\pgfpoint{0.5\lefttitlemargin}{\bottombar/2 + \logoheight/2},left,center]{%
-        \includegraphics[height=\logoheight]{logo_purple.jpg}
+    \pgftext[at=\pgfpoint{\logomargin}{\bottombar/2 + \logoheight/2},left,center]{%
+        \includegraphics[height=\logoheight]{logo_purple_en.png}
     }%    
 }
 
@@ -88,10 +94,19 @@
 {%
     \begin{minipage}[t][2.5cm][t]{10cm}%
         \begin{beamercolorbox}{title}%
-            \usebeamerfont{title}{\Huge\inserttitle\par}%
-            \vspace{0.25cm}%
-            \usebeamerfont{subtitle}\insertsubtitle\par%
+            \ifx\insertframesubtitle\@empty%
+                \usebeamerfont{title}{{\color{fontystitle}\bfseries\Huge\inserttitle\par}}%
+            \else
+                \usebeamerfont{title}{\Huge\inserttitle\par}%
+                \vspace{0.25cm}%
+                \usebeamerfont{subtitle}\insertsubtitle\par%
+            \fi            
         \end{beamercolorbox}%
+        \vspace*{2cm}
+        \begin{beamercolorbox}{author}
+            \usebeamerfont{author}{\insertauthor\par}%
+        \end{beamercolorbox}
+        \medskip
         \begin{beamercolorbox}{institute}%
             \usebeamerfont{institute}{\insertinstitute\par}%
         \end{beamercolorbox}%
@@ -108,8 +123,8 @@
 % Set the frame title properties
 \setbeamertemplate{frametitle}
 {
-    \vspace*{1.5em}%
-    \begin{minipage}[t][.5cm][t]{10cm}%
+    \vspace*{1.2em}%
+    \begin{minipage}[t][0cm][t]{10cm}%
         \begin{beamercolorbox}{frametitle}%
             \raggedright\insertframetitle\par%
         \end{beamercolorbox}%
