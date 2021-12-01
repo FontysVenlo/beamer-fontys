@@ -35,6 +35,10 @@
 \setlength{\slidelogoy}{0.1\cm}%
 \setlength{\bottombar}{0.5\cm}%
 
+% Define new commands
+
+% Draw background for title page, purple bar on top
+% Do not draw page number, logo at bottom
 \newcommand{\drawtitlebackground}{%
     \begin{pgfpicture}{0cm}{0cm}{\the\paperwidth}{\the\paperheight}%
         \fontsize{12}{12}\selectfont%
@@ -48,14 +52,15 @@
     \end{pgfpicture}%
 }%
 
+% Draw slide number (bottom right) and slide title (bottom center)
 \newcommand{\pageinfo}{
-    % Set page number and slide title
     \pgfsetcolor{fontys}
     \normalfont\fontsize{6}{6}\selectfont
     \pgftext[at=\pgfpoint{\paperwidth-\lefttitlemargin}{\bottombar},left,center]{\insertframenumber/\inserttotalframenumber \phantom{Xg}}%
     \pgftext[at=\pgfpoint{\paperwidth/2}{\bottombar},center,center]{\inserttitle \phantom{Xg}}%
 }
 
+% Draw the Fontys logo at the bottom left
 \newcommand{\drawlogo}{    
     \pgftext[at=\pgfpoint{0.5\lefttitlemargin}{\bottombar/2 + \logoheight/2},left,center]{%
         \includegraphics[height=\logoheight]{logo_purple.jpg}
@@ -78,7 +83,7 @@
     \end{pgfpicture}%
 }
 
-% Title page
+% Define what the title page (\titlepage) should look like
 \defbeamertemplate*{title page}{Fontys}[1][]
 {%
     \begin{minipage}[t][2.5cm][t]{10cm}%
@@ -109,6 +114,19 @@
             \raggedright\insertframetitle\par%
         \end{beamercolorbox}%
     \end{minipage}
+}
+
+% Add new frame types
+
+% Title frame should draw the purple top bar
+\newenvironment{titleframe}[1][]{
+    % Set the background template to the title background
+    \usebackgroundtemplate{\tstdrawtitlebackground[#1]}
+    % Draw the frame
+    \begin{frame}[fragile,environment=titleframe]}
+    {\end{frame}
+    % Reset the background to default
+    \usebackgroundtemplate{\drawbackground}
 }
 
 % Set mode back to all
