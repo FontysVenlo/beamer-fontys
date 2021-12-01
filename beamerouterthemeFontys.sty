@@ -5,19 +5,17 @@
 
 % Process beamer options
 
-\newcommand{\langen}{true}
+\newcommand{\themelang}{en}
 
 \DeclareOptionBeamer{lang}[en]{%
-\ifthenelse{\equal{#1}{en}}{\renewcommand{\langen}{true}}{\renewcommand{\langen}{false}}
-}
+    \ifthenelse{\equal{#1}{en}}{\renewcommand{\themelang}{en}}{}
+    \ifthenelse{\equal{#1}{nl}}{\renewcommand{\themelang}{nl}}{}
+}%
+
+\ProcessOptionsBeamer
 
 % Set mode to presentation
 \mode<presentation>
-
-\def\tstdrawtitlebackground{\@ifnextchar[\@tstdrawtitlebackground{\@tstdrawtitlebackground[]}}
-\def\@tstdrawtitlebackground[#1]{%
-  \drawtitlebackground%
-}
 
 % TAKEN FROM TU/e TEMPLATE
 % it is convenient to define a unit \cm
@@ -60,17 +58,14 @@
         \pgfpathlineto{\pgfpoint{\paperwidth}{\paperheight-\topbarheight}}%
         \pgfpathlineto{\pgfpoint{0\cm}{\paperheight-\topbarheight}}%
         \pgfusepath{fill}%
-
-        \pgfsetcolor{white}%
-        \pgfpathmoveto{\pgfpoint{0\cm}{\paperheight-\topbarheight}}%
-        \pgfpathlineto{\pgfpoint{\paperwidth}{\paperheight-\topbarheight}}%
-        \pgfpathlineto{\pgfpoint{\paperwidth}{0\cm}}%
-        \pgfpathlineto{\pgfpoint{0\cm}{0\cm}}%
-        \pgfusepath{fill}%
-
+        
         \pgftext[at=\pgfpoint{\logomargin}{\paperheight - \topbarheight/2},left,center]{%
-        \includegraphics[height=\logoheight]{logo_purple_society_en.png}
-    }%    
+            \ifthenelse{\equal{\themelang}{en}}{%
+                \includegraphics[height=\logoheight]{logo_purple_society_en.png}%
+            }{%
+                \includegraphics[height=\logoheight]{logo_purple_society_nl.png}%
+            }
+        }%    
     \end{pgfpicture}%
 }%
 
@@ -85,7 +80,11 @@
 % Draw the Fontys logo at the bottom left
 \newcommand{\drawlogo}{    
     \pgftext[at=\pgfpoint{\logomargin}{\bottombar/2 + \logoheight/2},left,center]{%
-        \includegraphics[height=\logoheight]{logo_purple_en.png}
+        \ifthenelse{\equal{\themelang}{en}}{%
+            \includegraphics[height=\logoheight]{logo_purple_en.png}%
+        }{
+            \includegraphics[height=\logoheight]{logo_purple_nl.jpg}%
+        }
     }%    
 }
 
