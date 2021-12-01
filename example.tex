@@ -2,12 +2,14 @@
 
 % Needed packages
 \usepackage{hyperref}
+\usepackage{listings}
+\usepackage{tabularx}
 
 % Use the Fontys theme
 \usetheme[lang=en]{Fontys}
 
 % Title page settings
-\title{Example presentation}
+\title{Example presentation for testing the Fontys theme}
 \institute{FHTenL}
 \author{M. Bonajo}
 
@@ -21,7 +23,7 @@
 
 % Example frame for itemize
 \begin{frame}
-    \frametitle{Itemize frame}
+    \frametitle{Frame showing itemize}
 
     \begin{itemize}
         \item Option one
@@ -31,22 +33,92 @@
 
 \end{frame}
 
+\begin{frame}
+    \frametitle{Frame showing enumerate}
+
+    \begin{enumerate}
+        \item Option one
+        \item Option two
+        \item Option three
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Frame showing description}
+
+    \begin{description}
+        \item[Option one] Option one
+        \item[Option two] Option two
+        \item[Option three] Option three
+    \end{description}
+
+\end{frame}
+
 % Example frame for URL
 \begin{frame}
-    \frametitle{URL}
-    \href{http://www.example.com}{Example link}
+    \frametitle{Frame showing an URL}
+    
+    You can find more information here \href{http://www.example.com}{Example link}
 
 \end{frame}
 
 \begin{titleframe}
-    \frametitle{You can add another titleframe later}
-    Lorem ipsum
+    \frametitle{Frame showing you can have multiple titleframes}
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 \end{titleframe}
 
 \begin{frame}
-    \frametitle{Test frame}
+    \frametitle{Frame showing graphics}
+    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{logo_purple_society_en.png}
+        \caption{The Fontys logo with for society used in English communication}
+    \end{figure}
 
-    Test
+\end{frame}
+
+\begin{frame}
+    \frametitle{Frame showing table}
+
+    \begin{table}
+        \begin{tabularx}{\textwidth}{ |X|X|X|X| }
+            \hline
+            label 1 & label 2 & label 3 & label 4 \\
+            \hline 
+            item 1  & item 2  & item 3  & item 4  \\
+            \hline 
+            item 1  & item 2  & item 3  & item 4  \\
+            \hline 
+            item 1  & item 2  & item 3  & item 4  \\
+            \hline
+          \end{tabularx}
+          \caption{Example table}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+    \frametitle{Frame showing code in lstlisting}
+
+    \begin{lstlisting}[language=Java, caption={Code example for GCD},captionpos=b]
+    static int gcd( int a, int b ) {
+        // make sure params to computation are positive.
+        if ( a < 0 ) {
+            a = -a;
+        }
+        if ( b < 0 ) {
+            b = -b;
+        }
+        while ( b != 0 ) {
+            int t = b;
+            b = a % b;
+            a = t;
+        }
+        return a;
+    }
+    \end{lstlisting}
 
 \end{frame}
 
