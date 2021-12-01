@@ -2,6 +2,15 @@
 \RequirePackage{xcolor}
 \RequirePackage{beamerbasethemes}
 
+% Beamer options
+\DeclareOptionBeamer{lang}
+{\PassOptionsToPackage{lang=#1}{beamerouterthemeFontys}}
+
+\DeclareOptionBeamer{style}
+{\PassOptionsToPackage{style=#1}{beamerouterthemeFontys}}
+
+\ProcessOptionsBeamer
+
 % Set the presentation mode
 \mode<presentation>
 

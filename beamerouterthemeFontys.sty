@@ -2,6 +2,15 @@
 \RequirePackage{calc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{ifthen}
+
+% Process beamer options
+
+\newcommand{\langen}{true}
+
+\DeclareOptionBeamer{lang}[en]{%
+\ifthenelse{\equal{#1}{en}}{\renewcommand{\langen}{true}}{\renewcommand{\langen}{false}}
+}
+
 % Set mode to presentation
 \mode<presentation>
 
@@ -52,6 +61,13 @@
         \pgfpathlineto{\pgfpoint{0\cm}{\paperheight-\topbarheight}}%
         \pgfusepath{fill}%
 
+        \pgfsetcolor{white}%
+        \pgfpathmoveto{\pgfpoint{0\cm}{\paperheight-\topbarheight}}%
+        \pgfpathlineto{\pgfpoint{\paperwidth}{\paperheight-\topbarheight}}%
+        \pgfpathlineto{\pgfpoint{\paperwidth}{0\cm}}%
+        \pgfpathlineto{\pgfpoint{0\cm}{0\cm}}%
+        \pgfusepath{fill}%
+
         \pgftext[at=\pgfpoint{\logomargin}{\paperheight - \topbarheight/2},left,center]{%
         \includegraphics[height=\logoheight]{logo_purple_society_en.png}
     }%    
@@ -77,17 +93,14 @@
 \newcommand{\drawbackground}{
     % Cover entire page
     \begin{pgfpicture}{0cm}{0cm}{\the\paperwidth}{\the\paperheight}%
-        % Check if we are not at the title page
-        \ifnum\thepage>1\relax%
-            % Draw Fontys logo at bottom left
-            \drawlogo
-            % Draw slide title and page numbers
-            \pageinfo
-        \else
-            %\drawtitlebackground
-        \fi
+        % Draw Fontys logo at bottom left
+        \drawlogo
+        % Draw slide title and page numbers
+        \pageinfo
     \end{pgfpicture}%
 }
+
+\setbeamertemplate{background}{\drawbackground}%
 
 % Define what the title page (\titlepage) should look like
 \defbeamertemplate*{title page}{Fontys}[1][]
@@ -117,9 +130,6 @@
 
 }%
 
-% Set default background template
-\setbeamertemplate{background}{\drawbackground}
-
 % Set the frame title properties
 \setbeamertemplate{frametitle}
 {
@@ -130,19 +140,34 @@
         \end{beamercolorbox}%
     \end{minipage}
 }
+% Frame title for a title frame
+\defbeamertemplate{frametitle}{titlepage}{%
+    \vspace*{5em}%
+    \begin{minipage}[t][0cm][t]{10cm}%
+        \begin{beamercolorbox}{frametitle}%
+            \raggedright\insertframetitle\par%
+        \end{beamercolorbox}%
+    \end{minipage}
+}%
 
 % Add new frame types
 
 % Title frame should draw the purple top bar
-\newenvironment{titleframe}[1][]{
+\newenvironment{titleframe}[1][]%
+{%
+    % Change the frametitle to the correct variant
+    \setbeamertemplate{frametitle}[titlepage]%
     % Set the background template to the title background
-    \usebackgroundtemplate{\tstdrawtitlebackground[#1]}
+    %\usebackgroundtemplate{\drawtitlebackground}% this doesn't work
+    \setbeamertemplate{background}{\drawtitlebackground}%
     % Draw the frame
-    \begin{frame}[fragile,environment=titleframe]}
-    {\end{frame}
+    \begin{frame}[fragile,environment=titleframe]%
+}%
+{%
+    \end{frame}%
     % Reset the background to default
-    \usebackgroundtemplate{\drawbackground}
-}
+    \usebackgroundtemplate{\drawbackground}%
+}%
 
 % Set mode back to all
 \mode<all>
