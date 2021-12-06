@@ -8,5 +8,29 @@
     urlcolor=fontyspink
 }
 
+% Use dots instead of default
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{itemize subitems}[circle]
+\setbeamertemplate{itemize subitems}[circle]
+
+% Add a left aligned description
+\defbeamertemplate{description item}{align left}{\insertdescriptionitem\hfill}
+
+% Number captions (e.g figure, table)
+\setbeamertemplate{caption}[numbered]
+
+% Listing style for Java
+\lstset{language=Java,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{codecomment},
+  keywordstyle=\color{codekeyword},
+  stringstyle=\color{codestring},
+  basicstyle=\footnotesize\ttfamily
+}
+
 % Switch back to all mode
 \mode<all>

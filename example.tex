@@ -21,12 +21,20 @@
     \titlepage
 \end{titleframe}
 
+\begin{frame}
+    \tableofcontents
+\end{frame}
+
 % Example frame for itemize
 \begin{frame}
     \frametitle{Frame showing itemize}
 
     \begin{itemize}
         \item Option one
+        \begin{itemize}
+            \item Suboption one
+            \item Suboption one
+        \end{itemize}
         \item Option two
         \item Option three
     \end{itemize}
@@ -38,6 +46,10 @@
 
     \begin{enumerate}
         \item Option one
+        \begin{enumerate}
+            \item Suboption one
+            \item Suboption two
+        \end{enumerate}
         \item Option two
         \item Option three
     \end{enumerate}
@@ -47,11 +59,26 @@
 \begin{frame}
     \frametitle{Frame showing description}
 
-    \begin{description}
-        \item[Option one] Option one
-        \item[Option two] Option two
-        \item[Option three] Option three
-    \end{description}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Default alignment
+            \setbeamertemplate{description item}[default]
+            \begin{description}%
+                \item[One] Option one%
+                \item[Two] Option two%
+                \item[Three] Option three%
+            \end{description}%
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            Left alignment
+            \setbeamertemplate{description item}[align left]
+            \begin{description}%
+                \item[One] Option one%
+                \item[Two] Option two%
+                \item[Three] Option three%
+            \end{description}%
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
@@ -75,6 +102,7 @@
         \centering
         \includegraphics[width=0.8\textwidth]{logo_purple_society_en.png}
         \caption{The Fontys logo with for society used in English communication}
+        \label{fig:logo}
     \end{figure}
 
 \end{frame}
@@ -105,13 +133,13 @@
     \begin{lstlisting}[language=Java, caption={Code example for GCD},captionpos=b]
     static int gcd( int a, int b ) {
         // make sure params to computation are positive.
-        if ( a < 0 ) {
+        if (a < 0){
             a = -a;
         }
-        if ( b < 0 ) {
+        if (b < 0){
             b = -b;
         }
-        while ( b != 0 ) {
+        while(b != 0){
             int t = b;
             b = a % b;
             a = t;

@@ -2,9 +2,11 @@
 \mode<presentation>
 
 % Switch default font to Roboto
-%\usepackage[default]{sourcecodepro}
-\usepackage{roboto}
+\usepackage{sourcecodepro}
 \usepackage[T1]{fontenc}
+
+\usepackage{roboto}
+\renewcommand{\familydefault}{\sfdefault}
 
 % Set font styles
 \setbeamerfont{frametitle}{size=\Large, series=\bfseries}
@@ -12,3 +14,5 @@
 \setbeamerfont{author}{size=\large}
 \setbeamerfont{blocktitle}{series=\bfseries}
 \setbeamerfont{description item}{series=\bfseries}
+
+%\setbeamerfont{enumerate item}{family={\ttfamily}}
