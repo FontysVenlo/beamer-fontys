@@ -20,17 +20,89 @@
 \setbeamertemplate{caption}[numbered]
 
 % Listing style for Java
-\lstset{language=Java,
-  showspaces=false,
-  showtabs=false,
-  breaklines=true,
-  showstringspaces=false,
-  breakatwhitespace=true,
-  commentstyle=\color{codecomment},
-  keywordstyle=\color{codekeyword},
-  stringstyle=\color{codestring},
-  basicstyle=\footnotesize\ttfamily
+\lstdefinestyle{fontys_listing}{
+  language            = Java,
+  numbers             = left,
+  xleftmargin         = 3em,
+  framexleftmargin    = 2.5em,
+  frame               = single,
+  framesep            = 0.19em,
+  rulecolor           = \color{listing-rule},
+  frameround          = ffff,
+  showspaces          = false,
+  showtabs            = false,
+  breaklines          = true,
+  showstringspaces    = false,
+  breakatwhitespace   = true,
+  commentstyle        = \color{f-listing-comment},
+  stringstyle         = \color{f-listing-string},
+  backgroundcolor     = \color{f-listing-background},
+  basicstyle          = \footnotesize\ttfamily,
+  rulecolor           = \color{f-listing-rule},
+  tabsize             = 4,
+  numberstyle         = \color{f-listing-numbers},
+  abovecaptionskip    = 0em,
+  belowcaptionskip    = 1.0em,
+  keywordstyle        = {\color{f-listing-keyword}\bfseries},
+  keywordstyle        = {[2]\color{f-listing-keyword-2}\bfseries},
+  keywordstyle        = {[3]\color{f-listing-keyword-3}\bfseries\itshape},
+  sensitive           = true,
+  identifierstyle     = \color{f-listing-identifier},
+  showstringspaces    = false,
+  escapeinside        = {/*@}{@*/}, % Allow LaTeX inside these special comments
+  literate            =
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {à}{{\`a}}1 {è}{{\'e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+    {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+    {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+    {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+    {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+    {€}{{\EUR}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+    {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+    {…}{{\ldots}}1 {≥}{{>=}}1 {≤}{{<=}}1 {„}{{\glqq}}1 {“}{{\grqq}}1
+    {”}{{''}}1
 }
+
+\lstdefinelanguage{Java}{
+  morekeywords={
+    % normal keywords (without data types)
+    abstract,assert,break,case,catch,class,continue,default,
+    do,else,enum,exports,extends,final,finally,for,if,implements,
+    import,instanceof,interface,module,native,new,package,private,
+    protected,public,requires,return,static,strictfp,super,switch,
+    synchronized,this,throw,throws,transient,try,volatile,while,
+    % var is an identifier
+    var
+  },
+  morekeywords={[2] % data types
+    % primitive data types
+    boolean,byte,char,double,float,int,long,short,
+    % String
+    String,
+    % primitive wrapper types
+    Boolean,Byte,Character,Double,Float,Integer,Long,Short
+    % number types
+    Number,AtomicInteger,AtomicLong,BigDecimal,BigInteger,DoubleAccumulator,DoubleAdder,LongAccumulator,LongAdder,Short,
+    % other
+    Object,Void,void
+  },
+  morekeywords={[3] % literals
+    % reserved words for literal values
+    null,true,false,
+  },
+  sensitive,
+  morecomment  = [l]//,
+  morecomment  = [s]{/*}{*/},
+  morecomment  = [s]{/**}{*/},
+  morestring   = [b]",
+  morestring   = [b]',
+}
+
+\lstset{style=fontys_listing}
 
 % Table of contents
 \setbeamertemplate{section in toc}[sections numbered]

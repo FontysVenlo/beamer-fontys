@@ -136,23 +136,23 @@
 \begin{frame}[containsverbatim]
     \frametitle{Frame showing code in lstlisting}
 
-    \begin{lstlisting}[language=Java, caption={Code example for GCD},captionpos=b]
-    static int gcd( int a, int b ) {
-        // make sure params to computation are positive.
-        if (a < 0){
-            a = -a;
-        }
-        if (b < 0){
-            b = -b;
-        }
-        while(b != 0){
-            int t = b;
-            b = a % b;
-            a = t;
-        }
-        return a;
+\begin{lstlisting}[language=Java]
+static int gcd( int a, int b ) {
+    // make sure params to computation are positive.
+    if (a < 0){
+        a = -a;
     }
-    \end{lstlisting}
+    if (b < 0){
+        b = -b;
+    }
+    while(b != 0){
+        int t = b;
+        b = a % b;
+        a = t;
+    }
+    return a;
+}
+\end{lstlisting}
 
 \end{frame}
 
