@@ -105,7 +105,11 @@
 % Define what the title page (\titlepage) should look like
 \defbeamertemplate*{title page}{Fontys}[1][]
 {%
-    \begin{minipage}[t][2.5cm][t]{10cm}%
+    \begin{minipage}[t][2.5cm][t]{14\cm}%
+        \ifbeamer@centered
+        \else
+            \vspace*{2\cm}
+        \fi
         \begin{beamercolorbox}{title}%
             \ifx\insertframesubtitle\@empty%
                 \usebeamerfont{title}{{\color{fontystitle}\bfseries\Huge\inserttitle\par}}%
@@ -139,7 +143,7 @@
             \raggedright\insertframetitle\par%
         \end{beamercolorbox}%
     \end{minipage}
-    \vspace*{-1\cm}
+    %\vspace*{-1\cm}
 }
 % Frame title for a title frame
 \defbeamertemplate{frametitle}{titlepage}{%

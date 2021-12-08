@@ -8,10 +8,7 @@
 
 \DeclareOptionBeamer{lang}[en]%
 {%
-    \ifthenelse{\equal{#1}{de}}{\renewcommand{\EN}[1]{}\renewcommand{\DE}[1]{#1}}{}%
-    \ifthenelse{\equal{#1}{nl}}{\renewcommand{\EN}[1]{}\renewcommand{\NL}[1]{#1}}{}%
-    \PassOptionsToPackage{lang=#1}{beamerouterthemeFontys}%
-    
+    \PassOptionsToPackage{lang=#1}{beamerouterthemeFontys}%    
 }%
 \DeclareOptionBeamer{style}
 {\PassOptionsToPackage{style=#1}{beamerouterthemeFontys}}
