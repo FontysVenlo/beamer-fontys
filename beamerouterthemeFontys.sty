@@ -6,14 +6,11 @@
 % Process beamer options
 
 \newcommand{\themelang}{en}
-\newcommand{\NL}[1]{}
-\newcommand{\DE}[1]{}
-\newcommand{\EN}[1]{}
 
 \DeclareOptionBeamer{lang}[en]{%
-    \ifthenelse{\equal{#1}{en}}{\renewcommand{\themelang}{en}\renewcommand\EN[1]{#1}}{}
-    \ifthenelse{\equal{#1}{nl}}{\renewcommand{\themelang}{nl}\renewcommand\NL[1]{#1}}{}
-    \ifthenelse{\equal{#1}{de}}{\renewcommand{\themelang}{en}\renewcommand\DE[1]{#1}}{}
+    \ifthenelse{\equal{#1}{en}}{\renewcommand{\themelang}{en}}{}
+    \ifthenelse{\equal{#1}{nl}}{\renewcommand{\themelang}{nl}}{}
+    \ifthenelse{\equal{#1}{de}}{\renewcommand{\themelang}{en}}{}
 }%
 
 \ProcessOptionsBeamer

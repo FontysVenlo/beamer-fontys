@@ -1,11 +1,18 @@
-% Required packages
-\RequirePackage{xcolor}
-\RequirePackage{beamerbasethemes}
+\RequirePackage{ifthen}
 
 % Beamer options
-\DeclareOptionBeamer{lang}
-{\PassOptionsToPackage{lang=#1}{beamerouterthemeFontys}}
 
+\newcommand{\EN}[1]{#1}
+\newcommand{\DE}[1]{}
+\newcommand{\NL}[1]{}
+
+\DeclareOptionBeamer{lang}[en]%
+{%
+    \ifthenelse{\equal{#1}{de}}{\renewcommand{\EN}[1]{}\renewcommand{\DE}[1]{#1}}{}%
+    \ifthenelse{\equal{#1}{nl}}{\renewcommand{\EN}[1]{}\renewcommand{\NL}[1]{#1}}{}%
+    \PassOptionsToPackage{lang=#1}{beamerouterthemeFontys}%
+    
+}%
 \DeclareOptionBeamer{style}
 {\PassOptionsToPackage{style=#1}{beamerouterthemeFontys}}
 
