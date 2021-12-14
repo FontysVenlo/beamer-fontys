@@ -1,10 +1,14 @@
 \RequirePackage{ifthen}
+\RequirePackage{xcolor}
 
 % Beamer options
 
 \newcommand{\EN}[1]{#1}
 \newcommand{\DE}[1]{}
 \newcommand{\NL}[1]{}
+
+\newcommand{\keyword}[1]{\textcolor{f-listing-keyword}{#1}}
+\newcommand*\lstinputpath[1]{\lstset{inputpath=#1}}
 
 \DeclareOptionBeamer{lang}[en]%
 {%
