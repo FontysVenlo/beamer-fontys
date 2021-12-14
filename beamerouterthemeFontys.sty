@@ -36,6 +36,7 @@
 \newlength{\lefttitlemargin}
 \newlength{\bottombar}
 \newlength{\logomargin}
+\newlength{\pagenumbermargin}
 
 \setlength{\topbarheight}{1.84\cm}%
 \setlength{\logoheight}{1.2\cm}%
@@ -43,6 +44,7 @@
 \setlength{\slidelogoy}{0.1\cm}%
 \setlength{\bottombar}{0.5\cm}%
 \setlength{\logomargin}{0.3\cm}
+\setlength{\pagenumbermargin}{\paperwidth-\lefttitlemargin+0.1\cm}
 
 % Define new commands
 
@@ -73,7 +75,7 @@
 \newcommand{\pageinfo}{
     \pgfsetcolor{fontys}
     \normalfont\fontsize{6}{6}\selectfont
-    \pgftext[at=\pgfpoint{\paperwidth-\lefttitlemargin}{\bottombar},left,center]{\insertframenumber/\inserttotalframenumber \phantom{Xg}}%
+    \pgftext[at=\pgfpoint{\pagenumbermargin}{\bottombar},center,left]{\insertframenumber/\inserttotalframenumber \phantom{Xg}}%
     \pgftext[at=\pgfpoint{\paperwidth/2}{\bottombar},center,center]{\inserttitle \phantom{Xg}}%
 }
 
