@@ -69,17 +69,17 @@ The following colours are available by default and can be used by their name:
 
 | Name | Color |
 | --- | --- |
-| fontys | <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: rgb(102,51,102)"></span> |
-| fontyspink | <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: rgb(230,0,126)"></span> | 
-| fontysblue | <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: rgb(0,118,224)"></span> |
-| fontystitle | <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: rgb(102,51,102)"></span> |
-|slidebgcolor | <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: rgb(255,255,255)"></span> | 
-| slidetextcolor| <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: rgb(33,33,33)"></span> |
-| f-secondary-blue | <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: #0099cb"></span> |
-| f-secondary-cyan | <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: #008387"></span> |
-| f-secondary-dark-green | <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: #339933"></span> |
-| f-secondary-green | <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: #3ab54a"></span> |
-| f-secondary-dark-orange | <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: #ed7425"></span> |
-| f-secondary-orange | <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: #ff9900"></span> |
-| f-secondary-yellow | <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: #ffcc00"></span> |
-| f-grey | <span style="border: 1px solid #000;display:block;width: 15px;height: 15px; background-color: #878787"></span> |
+| fontys |  ![fontys](images/fontys.png) |
+| fontyspink | ![fontys](images/fontyspink.png) |
+| fontysblue | ![fontys](images/fontysblue.png) |
+| fontystitle | ![fontys](images/fontystitle.png)|
+| slidebgcolor | ![fontys](images/slidebgcolor.png) |
+| slidetextcolor| ![fontys](images/slidetextcolor.png) |
+| f-secondary-blue | ![fontys](images/f-secondary-blue.png) |
+| f-secondary-cyan | ![fontys](images/f-secondary-cyan.png) |
+| f-secondary-dark-green | ![fontys](images/f-secondary-dark-green.png) |
+| f-secondary-green | ![fontys](images/f-secondary-green.png) |
+| f-secondary-dark-orange | ![fontys](images/f-secondary-dark-orange.png) |
+| f-secondary-orange | ![fontys](images/f-secondary-orange.png) |
+| f-secondary-yellow | ![fontys](images/f-secondary-yellow.png)| 
+| f-grey | ![fontys](images/f-grey.png) |
