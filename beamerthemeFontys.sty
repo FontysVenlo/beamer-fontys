@@ -14,6 +14,9 @@
 {%
     \PassOptionsToPackage{lang=#1}{beamerouterthemeFontys}%    
 }%
+\DeclareOptionBeamer{mode}[default]{%
+    \PassOptionsToPackage{mode=#1}{beamerouterthemeFontys}
+}%
 \DeclareOptionBeamer{style}
 {\PassOptionsToPackage{style=#1}{beamerouterthemeFontys}}
 

@@ -12,6 +12,15 @@
     \ifthenelse{\equal{#1}{nl}}{\renewcommand{\themelang}{nl}}{}
 }%
 
+\DeclareOptionBeamer{mode}{%
+    \ifthenelse{\equal{#1}{dark}}{%
+        \setbeamercolor{normal text}{fg=darkslidetextcolor}
+        \setbeamercolor{background canvas}{bg=darkslidebgcolor}
+    }{%
+        \setbeamercolor{normal text}{fg=slidetextcolor}
+    }%
+}
+
 \ProcessOptionsBeamer
 
 % Set mode to presentation
