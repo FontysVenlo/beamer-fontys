@@ -49,6 +49,12 @@ The language option is used to include the correct images for either the Dutch (
 
 The theme has support for two slide types, the normal slide and the title page slide.
 
+We can also specify if we want to use dark mode. By default it is not enabled, if you would like to enable it, modify theme declaration
+
+```latex
+\usetheme[lang=en, mode=dark]{Fontys}
+```
+
 Normal slide:
 ```latex
 \begin{frame}
