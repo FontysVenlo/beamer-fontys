@@ -45,6 +45,12 @@ Now we can specify that we want to use the Fontys theme
 \usetheme[lang=en]{Fontys}
 ```
 
+We can also specify if we want to use dark mode. By default it is not enabled, if you would like to enable it, modify theme declaration
+
+```latex
+\usetheme[lang=en, mode=dark]{Fontys}
+```
+
 The language option is used to include the correct images for either the Dutch (NL) template or the international (EN) template, for more information see [huisstijl](https://fontys.nl/Fontys-Huisstijl-Positionering-en-profilering-1.htm).
 
 The theme has support for two slide types, the normal slide and the title page slide.

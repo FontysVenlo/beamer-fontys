@@ -12,6 +12,29 @@
     \ifthenelse{\equal{#1}{nl}}{\renewcommand{\themelang}{nl}}{}
 }%
 
+\DeclareOptionBeamer{mode}{%
+    \ifthenelse{\equal{#1}{dark}}{%
+        \setbeamercolor{normal text}{fg=darkslidetextcolor}
+        \setbeamercolor{background canvas}{bg=darkslidebgcolor}
+        \hypersetup{
+            colorlinks=true,
+            linkcolor=darkslidetextcolor,
+            filecolor=fontys,
+            urlcolor=fontyspink
+        }
+
+    }{%
+        \setbeamercolor{normal text}{fg=slidetextcolor}
+        \hypersetup{
+            colorlinks=true,
+            linkcolor=slidetextcolor,
+            filecolor=fontys,
+            urlcolor=fontyspink
+        }
+
+    }%
+}
+
 \ProcessOptionsBeamer
 
 % Set mode to presentation

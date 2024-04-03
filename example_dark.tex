@@ -1,0 +1,162 @@
+\documentclass[aspectratio=169]{beamer}
+
+% Needed packages
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{tabularx}
+
+% Use the Fontys theme
+\usetheme[lang=en, mode=dark]{Fontys}
+
+
+
+% Title page settings
+\title{Example presentation for testing the Fontys theme}
+\institute{FHTenL}
+\author{M. Bonajo}
+
+% Start the document
+\begin{document}
+
+% Create title page
+\begin{titleframe}
+    \titlepage
+\end{titleframe}
+
+\begin{frame}
+    \tableofcontents
+\end{frame}
+
+\section{Different lists}
+% Example frame for itemize
+\begin{frame}
+    \frametitle{Frame showing itemize}
+
+    \begin{itemize}
+        \item Option one
+        \begin{itemize}
+            \item Suboption one
+            \item Suboption one
+        \end{itemize}
+        \item Option two
+        \item Option three
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Frame showing enumerate}
+
+    \begin{enumerate}
+        \item Option one
+        \begin{enumerate}
+            \item Suboption one
+            \item Suboption two
+        \end{enumerate}
+        \item Option two
+        \item Option three
+    \end{enumerate}
+    \EN{English text here}
+    \DE{German text here}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Frame showing description}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Default alignment
+            \setbeamertemplate{description item}[default]
+            \begin{description}%
+                \item[One] Option one%
+                \item[Two] Option two%
+                \item[Three] Option three%
+            \end{description}%
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            Left alignment
+            \setbeamertemplate{description item}[align left]
+            \begin{description}%
+                \item[One] Option one%
+                \item[Two] Option two%
+                \item[Three] Option three%
+            \end{description}%
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\section{Example of URL}
+% Example frame for URL
+\begin{frame}
+    \frametitle{Frame showing an URL}
+    
+    You can find more information here \href{http://www.example.com}{Example link}
+
+\end{frame}
+
+\section{Example of custom frametitle}
+\begin{titleframe}
+    \frametitle{Frame showing you can have multiple titleframes}
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+\end{titleframe}
+
+\section{Example of graphics}
+\begin{frame}
+    \frametitle{Frame showing graphics}
+    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{logo_purple_society_en.png}
+        \caption{The Fontys logo with for society used in English communication}
+        \label{fig:logo}
+    \end{figure}
+
+\end{frame}
+
+\section{Example of table}
+\begin{frame}
+    \frametitle{Frame showing table}
+
+    \begin{table}
+        \begin{tabularx}{\textwidth}{ |X|X|X|X| }
+            \hline
+            label 1 & label 2 & label 3 & label 4 \\
+            \hline 
+            item 1  & item 2  & item 3  & item 4  \\
+            \hline 
+            item 1  & item 2  & item 3  & item 4  \\
+            \hline 
+            item 1  & item 2  & item 3  & item 4  \\
+            \hline
+          \end{tabularx}
+          \caption{Example table}
+    \end{table}
+
+\end{frame}
+
+\section{Example of source code}
+\begin{frame}[containsverbatim]
+    \frametitle{Frame showing code in lstlisting}
+
+\begin{lstlisting}[language=Java]
+static int gcd( int a, int b ) {
+    // make sure params to computation are positive.
+    if (a < 0){
+        a = -a;
+    }
+    if (b < 0){
+        b = -b;
+    }
+    while(b != 0){
+        int t = b;
+        b = a % b;
+        a = t;
+    }
+    return a;
+}
+\end{lstlisting}
+
+\end{frame}
+
+\end{document}
