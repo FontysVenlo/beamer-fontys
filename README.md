@@ -17,6 +17,7 @@ MacOS
 ```sh
 $HOME/Library/texmf/tex/latex/
 ```
+(`$HOME/Library/texmf` does not exist by default, so you need to create it)
 
 Windows:
 ```sh
