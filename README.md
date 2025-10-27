@@ -8,6 +8,9 @@ An example of this theme can be found [here](/example.pdf)
 
 The default paths for latex beamer templates are the following:
 
+> [!NOTE]
+> The default path may not exist yet, in that case you need to create it.
+
 Linux:
 ```sh
 $HOME/texmf/tex/latex/
